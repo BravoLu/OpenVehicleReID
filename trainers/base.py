@@ -60,8 +60,9 @@ class BaseTrainer(object):
             stats = {'id_loss', 'triplet_loss', 'total_loss'}
             meters_trn = {stat: AverageMeter() for stat in stats}
 
-            bar = Bar('Training...', max=len(self.train_loader))
+            bar = Bar('Epoch[{N_epoch}]'.format(N_epoch=epoch), max=len(self.train_loader))
             start_time = time.time()
+            
             for i,inputs in enumerate(self.train_loader):
                 imgs = Variable(inputs[0]).to(self.device)
                 labels = Variable(inputs[1]).to(self.device)
@@ -81,7 +82,7 @@ class BaseTrainer(object):
                     v = locals()[k]
                     meters_trn[k].update(v.item(), self.cfg['BATCH'])
 
-                bar.suffix = 'Epoch:[{N_epoch}][{N_batch}/{N_size}] | Loss:{N_loss:.3f} {N_lossa:.3f} |'.format(
+                bar.suffix = '[{N_batch}/{N_size}] | Loss:{N_loss:.3f} {N_lossa:.3f} |'.format(
                     N_epoch=epoch, 
                     N_batch=i+1, 
                     N_size=len(self.train_loader), 
@@ -90,10 +91,11 @@ class BaseTrainer(object):
                     )
                 bar.next()
 
-            self.logger.write('epoch: %d | lr: %.5f \n'%(epoch+1, self.scheduler.get_lr()[0]))
+            self.logger.write('\n\nTraining Infos: \n')
+            self.logger.write('[%d] \nlr              : %.5f \n'%(epoch+1, self.scheduler.get_lr()[0]))
             for loss in stats:
-                self.logger.write('%s: %.5f \n'%(loss, meters_trn[loss].avg))
-            self.logger.write('Time consumed: %.1fs\n'%(time.time() - start_time))
+                self.logger.write('%s : %.2f \n'%(loss.ljust(15), meters_trn[loss].avg))
+            self.logger.write('Time consumed   : %.1fs\n'%(time.time() - start_time))
 
             bar.finish()
             if epoch % self.cfg['EVAL_FRE'] == 0:

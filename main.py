@@ -16,8 +16,9 @@ def parse_args():
                                   help='the path to the training config', default='baseline')
     parser.add_argument('-t', '--test', action='store_true', default=False)
     parser.add_argument('-s', '--check', action='store_true', default=False, help="for fast check complie error in program")
-    parser.add_argument('-d', '--data', type=str, default='/home/share/zhihui/VeRi')
-    parser.add_argument('-v', '--vis', type=str, default=None)
+    parser.add_argument('-d', '--data', type=str, default='/home/share/zhihui/VeRi', help='the path of dataset')
+    parser.add_argument('-v', '--vis', type=str, default=None, help='the path of the output file of rank list visualization')
+    parser.add_argument('--log', type=str, default='default', help='the path of the log file.')
     parser.add_argument('--gpu', type=str, default='0')
     parser.add_argument('--seed', type=int, default=0)
     args = parser.parse_args()
@@ -46,7 +47,7 @@ def test(args, cfg):
         rank1, rank5, rank10 = evaluator.evaluate() 
     else:
         mAP, CMC = evaluator.evaluate() 
-        rank1, rank5, rank10 = evaluator.evaluate()
+        rank1, rank5, rank10 = CMC[0], CMC[4], CMC[9]
 
     if cfg['TARGET'] != 'VehicleID':
         print('mAP: %.5f\n'%mAP)
@@ -63,8 +64,9 @@ if __name__ == "__main__":
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = True
 
-    os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu 
-    configs = parse_config(args.config)
+    os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
+ 
+    configs = parse_config(args)
     if args.test:
         test(args, configs)
     else:

@@ -4,6 +4,8 @@
 
 ## Installation
 
+This is a repository for vehicle re-id. Keep updating.
+
 ### Requirements
 * Linux
 * CUDA 8.0 or higher 
@@ -24,7 +26,7 @@
 
 ## Get Started
 
-1. Download the dataset [VeRi]() [VehicleID]() [VeRi_Wild]().
+1. Download the dataset ([VeRi776](https://vehiclereid.github.io/VeRi/)\\[VehicleID](https://www.pkuml.org/resources/pku-vehicleid.html)\\[VeRi_Wild](https://github.com/PKU-IMRE/VERI-Wild)).
 
 2. Train
 ```shell
@@ -42,7 +44,7 @@
                    -d {$DATA_PATH} \\
                    --ckpt {$CKPT_PATH} \\
                    --gpu {$GPU_IDS} \\
-                   --seed {$SEED} 
+                   --seed {$SEED} \\
                    -t 
     (e.g.)
     python main.py -c configs/baseline.yml -d /home/share/zhihui/VeRi/ --ckpt ckpts/baseline/checkpoint.pth --gpu 0,1 --seed 0
@@ -50,5 +52,20 @@
 ## Visualization 
 
 
+## Benchmark
+* VehicleID
+|    Model        | Mem (GB) | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :------: | :----: | :----: | :-----: |   
+| :-------------: |    -     |    -   |   -    |    -    |   
 
-* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)
+* VeRi776
+|    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
+| :-------------: | :-----:  |  -  |    -   |   -    |    -    |  
+
+
+* VeRi_Wild
+|    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
+| :-------------: | :-----:  |  -  |    -   |   -    |    -    |  
+\* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)

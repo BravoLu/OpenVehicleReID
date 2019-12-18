@@ -11,6 +11,7 @@ import numpy as np
 from .vehicleid import VehicleID
 from .veri776 import VeRi776
 from .veri_wild import VeRi_Wild 
+from .preprocessor import Preprocessor
 
 class RandomErasing(object):
     def __init__(self,probability=0.5,sl=0.02,sh=0.4,r1=0.3,mean=(0.4914,0.4822,0.4465)):
@@ -136,24 +137,20 @@ def get_dataloader(cfg, root ,quick_check=False):
         normalizer,
     ])
     
-    target.set_transformer(train_transformer, test_transformer)
-
     train_loader = DataLoader(
-        target,
+        Preprocessor(target.train, training=True, transform=train_transformer),
         batch_size=cfg['BATCH'],
         sampler=RandomIdentitySampler(target, cfg['BATCH'], cfg['INSTANCE']),
         num_workers=4, 
         pin_memory=True,
     )
     
-    target.training = False
     test_loader = DataLoader(
-        target,
+        Preprocessor(target.test, training=False, transform=test_transformer),
         batch_size=cfg['BATCH'],
         shuffle=False,
         num_workers=4,
         pin_memory=True, 
     )
-
 
     return train_loader, test_loader, target.query, target.gallery, vids

@@ -28,8 +28,6 @@ class VeRi776(BaseDataset):
             self.query.append([osp.join(self.root, 'image_query', dict['filename']),
                                dict['vid'], 
                                dict['camera'],
-                               dict['model'], 
-                               dict['color'],
                                dict['filename'].split('.')[0],
                             ])
 
@@ -37,8 +35,6 @@ class VeRi776(BaseDataset):
             self.gallery.append([osp.join(self.root, 'image_test', dict['filename']),
                                  dict['vid'],
                                  dict['camera'],
-                                 dict['model'],
-                                 dict['color'],
                                  dict['filename'].split('.')[0],
                             ])
         

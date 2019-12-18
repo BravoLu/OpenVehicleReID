@@ -78,7 +78,7 @@ class BaseEvaluator(object):
         distmat = self.pairwise_distance(features)
         indices = np.argsort(distmat.numpy(), axis=1)
         m, _ = distmat.shape
-        rank_list = []
+        rank_list_dict = {}
         for i in range(m):
             num = 0 
             rank_list_i = []
@@ -89,10 +89,10 @@ class BaseEvaluator(object):
                     num += 1
                 if num > 35:
                     break 
-            rank_list.append(rank_list_i)
+            rank_list_dict[query_names[i]] = rank_list_i
 
         with open(save_file, 'wb') as f:
-            pickle.dump(rank_list, f)
+            pickle.dump(rank_list_dict, f)
         
     def extract_features(self):
         '''

@@ -13,11 +13,16 @@ def mkdir_if_missing(dir_path):
         if e.errno != errno.EEXIST:
             raise
 
-def parse_config(cfg):
-    name = cfg
-    with open(cfg, 'r') as f:
-        cfg = yaml.load(f)
-    cfg['NAME'] = name
+def parse_config(args):
+    
+    
+    with open(args.config, 'r') as f:
+        cfg = yaml.load(f, Loader=yaml.FullLoader)
+    
+    cfg['DATA_ROOT'] = args.data
+    cfg['SEED'] = args.seed 
+    cfg['GPU_NUMS'] = len(args.gpu.split(','))
+    cfg['LOG_DIR'] = args.log
     return cfg
 
 

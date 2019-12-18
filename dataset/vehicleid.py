@@ -21,7 +21,7 @@ class VehicleID(BaseDataset):
 
     def __init__(self, root="/home/share/zhihui/VehicleID_V1.0/", test_size='small'):
         assert test_size in ['small', 'median', 'large']
-        self.test_json = "vehicleid_test_%s.json"%test_size 
+        self.test_json = "dataset/vehicleid_test_%s.json"%test_size 
         self.train, self.test, self.gallery, self.query = [], [], [], []
         self.root = root 
         self.load()
@@ -33,7 +33,7 @@ class VehicleID(BaseDataset):
         ID to form the gallery, and the rest of images to form the query set.
         According the original papper "http://openaccess.thecvf.com/content_cvpr_2016/papers/Liu_Deep_Relative_Distance_CVPR_2016_paper.pdf"
         '''
-        for dict in self._load_json('vehicleid_train.json'):
+        for dict in self._load_json('dataset/vehicleid_train.json'):
             self.train.append([osp.join(self.root, 'image', dict['filename']),
                                dict['vid'],
                                dict['camera'],
