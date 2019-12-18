@@ -54,17 +54,20 @@ This is a repository for vehicle re-id. Keep updating.
 
 ## Benchmark
 * VehicleID
+
 |    Model        | Mem (GB) | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :------: | :----: | :----: | :-----: |   
 |    Baseline     |    -     |    -   |   -    |    -    |   
 
 * VeRi776
+
 |    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
 |    Baseline     | -        |  -  |    -   |   -    |    -    |  
 
 
 * VeRi_Wild
+
 |    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
 |    Baseline     | -        |  -  |    -   |   -    |    -    |  
