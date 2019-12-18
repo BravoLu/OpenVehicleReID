@@ -2,9 +2,9 @@
 
 ## Introduction 
 
-## Installation
-
 This is a repository for vehicle re-id. Keep updating.
+
+## Installation
 
 ### Requirements
 * Linux
@@ -56,16 +56,16 @@ This is a repository for vehicle re-id. Keep updating.
 * VehicleID
 |    Model        | Mem (GB) | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :------: | :----: | :----: | :-----: |   
-| :-------------: |    -     |    -   |   -    |    -    |   
+|    Baseline     |    -     |    -   |   -    |    -    |   
 
 * VeRi776
 |    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
-| :-------------: | :-----:  |  -  |    -   |   -    |    -    |  
+|    Baseline     | -        |  -  |    -   |   -    |    -    |  
 
 
 * VeRi_Wild
 |    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
-| :-------------: | :-----:  |  -  |    -   |   -    |    -    |  
+|    Baseline     | -        |  -  |    -   |   -    |    -    |  
 \* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)
