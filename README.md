@@ -70,5 +70,7 @@ This is a repository for vehicle re-id. Keep updating.
 
 |    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
 | :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
-|    Baseline     | -        |  -  |    -   |   -    |    -    |  
+|    Baseline     | -        |  -  |    -   |   -    |    -    |
+
+  
 \* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)
