@@ -15,7 +15,7 @@ This is a repository for vehicle re-id. Keep updating.
 ### Install open-VehicleReID
 1. Clone the open-VehicleReID repository.
 ```shell
-    https://github.com/BravoLu/open-VehicleReID.git
+    git clone https://github.com/BravoLu/open-VehicleReID.git
 ```
 
 2. Install the dependencies. 
@@ -51,26 +51,49 @@ This is a repository for vehicle re-id. Keep updating.
 ```
 ## Visualization 
 
+* We visualize the ranking list in Windows 10.
+
+1. Generate the ranking list pickle file.
+```shell
+    python main.py -c {$CONFIG_FILE} \\
+                   -d {$DATA_PATH}  \\
+                   --ckpt {$CKPT_PATH} \\
+                   --gpu {$GPU_IDS} \\
+                   --seed {$SEED} \\
+                   --vis {$OUTPUT_PKL_PATH}
+                   -t
+```
+
+2. Visualize the ranking list according to the .pkl file generated in step 1.
+```shell
+    cd visualization
+    python visualization.py --data ${DATA_ROOT}
+```
+![pic](imgs/ui.jpg)
+
+Input the file name (without extension.)
+
+![pic](imgs/rank_list.jpg)
 
 ## Benchmark
 * VehicleID
 
-|    Model        | Mem (GB) | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :------: | :----: | :----: | :-----: |   
-|    Baseline     |    -     |    -   |   -    |    -    |   
+|    Model        | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :----: | :----: | :-----: |   
+|    Baseline     |    -   |   -    |    -    |   
 
 * VeRi776
 
-|    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
-|    Baseline     | -        |  -  |    -   |   -    |    -    |  
+|    Model        | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :-: | :----: | :----: | :-----: | 
+|    Baseline     |  -  |    -   |   -    |    -    |  
 
 
 * VeRi_Wild
 
-|    Model        | Mem (GB) | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :-----:  | :-: | :----: | :----: | :-----: | 
-|    Baseline     | -        |  -  |    -   |   -    |    -    |
+|    Model        | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :-: | :----: | :----: | :-----: | 
+|    Baseline     |  -  |    -   |   -    |    -    |
 
-  
+
 \* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)

@@ -20,8 +20,7 @@ PRETRAINED: None
 RESUME: None
 
 #logs
-LOGS: 'training.log'
-CKPT_DIR: '/home/shaohao/Vehicle Re-ID/ckpts/baseline'
+CKPT_DIR: '/home/shaohao/open-VehicleReID/ckpts/VeRi/baseline'
 #optimizer setting
 STEPS: [20 ,30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255]
 GAMMA: 0.6
