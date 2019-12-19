@@ -11,7 +11,6 @@ class Logger(object):
         
         mkdir_if_missing(os.path.join('logs', cfg['LOG_DIR']))
         log = time.strftime("%Y_%m_%d_%H_%M.log", time.localtime())
-        print(log)
         self.file = open(os.path.join('logs', cfg['LOG_DIR'], log), 'w')
         self.write('Configs Setting: \n')
         for key,value in cfg.items():

@@ -71,9 +71,11 @@ This is a repository for vehicle re-id. Keep updating.
 ```
 ![pic](imgs/ui.jpg)
 
-Input the file name (without extension.)
+Input the file name (without extension) on the entry of Rank File(.pkl).
 
 ![pic](imgs/rank_list.jpg)
+
+* (Green denotes same ids, red denotes different ids.)
 
 ## Benchmark
 * VehicleID
@@ -95,5 +97,8 @@ Input the file name (without extension.)
 | :-------------: | :-: | :----: | :----: | :-----: | 
 |    Baseline     |  -  |    -   |   -    |    -    |
 
+## Acknowlegement
 
-\* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)
+* Keep Updating.
+
+* Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)

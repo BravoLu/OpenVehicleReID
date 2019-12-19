@@ -23,6 +23,10 @@ def parse_config(args):
     cfg['SEED'] = args.seed 
     cfg['GPU_NUMS'] = len(args.gpu.split(','))
     cfg['LOG_DIR'] = args.log
+    cfg['CKPT'] = args.ckpt
+    cfg['TEST'] = args.test
+    cfg['RESUME'] = args.resume
+    cfg['CKPT_DIR'] = args.save
     return cfg
 
 

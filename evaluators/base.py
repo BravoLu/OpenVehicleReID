@@ -17,6 +17,10 @@ class BaseEvaluator(object):
 
         self.cfg = cfg 
         self.model = model 
+        if cfg['TEST']:
+            params = torch.load(cfg['CKPT'])
+            self.model.load_state_dict(params['state_dict'])
+
         if isinstance(self.model, nn.DataParallel):
             self.device = torch.device("cuda:0")
         else:
