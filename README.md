@@ -128,7 +128,6 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td colspan="4" align="center">Large</td>
    </tr>
    <tr>
-      <td></td>
       <td>mAP</td>
       <td>Rank1</td>
       <td>Rank5</td>
