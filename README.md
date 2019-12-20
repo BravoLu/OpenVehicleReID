@@ -83,12 +83,11 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 <table>
    <tr>
       <td rowspan="2">Model</td>
-      <td colspan="3">Small</td>
-      <td colspan="3">Median</td>
-      <td colspan="3">Large</td>
+      <td colspan="3" align="center">Small</td>
+      <td colspan="3" align="center">Median</td>
+      <td colspan="3" align="center">Large</td>
    </tr>
    <tr>
-      <td></td>
       <td>Rank 1</td>
       <td>Rank 5</td>
       <td>Rank 10</td>
@@ -123,10 +122,10 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 <table>
    <tr>
-      <td>Model</td>
-      <td colspan="4">Small</td>
-      <td colspan="4">Median</td>
-      <td colspan="4">Large</td>
+      <td rowspan="2">Model</td>
+      <td colspan="4" align="center">Small</td>
+      <td colspan="4" align="center">Median</td>
+      <td colspan="4" align="center">Large</td>
    </tr>
    <tr>
       <td></td>
