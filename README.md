@@ -82,16 +82,10 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 <table>
    <tr>
-      <td>Model</td>
-      <td>Small</td>
-      <td></td>
-      <td></td>
-      <td>Median</td>
-      <td></td>
-      <td></td>
-      <td>Large</td>
-      <td></td>
-      <td></td>
+      <td rowspan="2">Model</td>
+      <td colspan="3">Small</td>
+      <td colspan="3">Median</td>
+      <td colspan="3">Large</td>
    </tr>
    <tr>
       <td></td>
@@ -117,9 +111,6 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td>0</td>
       <td>0</td>
    </tr>
-   <tr>
-      <td></td>
-   </tr>
 </table> 
 
 * VeRi776
@@ -128,39 +119,29 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 | :-------------: | :-: | :----: | :----: | :-----: | 
 |    Baseline     |  -  |    -   |   -    |    -    |  
 
-
 * VeRi_Wild
 
 <table>
    <tr>
       <td>Model</td>
-      <td>Small</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Median</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Large</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td colspan="4">Small</td>
+      <td colspan="4">Median</td>
+      <td colspan="4">Large</td>
    </tr>
    <tr>
       <td></td>
       <td>mAP</td>
-      <td>Rank 1</td>
-      <td>Rank 5</td>
-      <td>Rank 10</td>
+      <td>Rank1</td>
+      <td>Rank5</td>
+      <td>Rank10</td>
       <td>mAP</td>
-      <td>Rank 1</td>
-      <td>Rank 5</td>
-      <td>Rank 10</td>
+      <td>Rank1</td>
+      <td>Rank5</td>
+      <td>Rank10</td>
       <td>mAP</td>
-      <td>Rank 1</td>
-      <td>Rank 5</td>
-      <td>Rank 10</td>
+      <td>Rank1</td>
+      <td>Rank5</td>
+      <td>Rank10</td>
    </tr>
    <tr>
       <td>Baseline</td>
@@ -176,9 +157,6 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td>0</td>
       <td>0</td>
       <td>0</td>
-   </tr>
-   <tr>
-      <td></td>
    </tr>
 </table>
 
