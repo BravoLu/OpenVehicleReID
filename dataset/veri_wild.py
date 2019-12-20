@@ -15,34 +15,39 @@ class VeRi_Wild(BaseDataset):
         }
     ]
     '''
+    def __init__(self, root, test_size='small'):
+        assert test_size in ['small', 'median', 'large']
+        self.query_json = 'dataset/veriwild_query_%s.json'%test_size
+        self.gallery_json = 'dataset/veriwild_gallery_%s.json'%test_size
+        self.train, self.test, self.gallery, self.query = [], [], [], []
+        self.root = root 
+        self.load()
+
     def load(self):
-        for dict in self._load_json('veriwild_train.json'):
-            self.train.append([osp.join(self.root, 'image_train', dict['filename']),
+        for dict in self._load_json('dataset/veriwild_train.json'):
+            self.train.append([osp.join(self.root, 'images', dict['filename']),
                                dict['vid'],
                                dict['camera'],
                                dict['model'],
                                dict['color']
                             ])
 
-        for dict in self._load_json('veriwild_query.json'):
-            self.query.append([osp.join(self.root, 'image_query', dict['filename']),
+        for dict in self._load_json(self.query_json):
+            self.query.append([osp.join(self.root, 'images', dict['filename']),
                                dict['vid'], 
                                dict['camera'],
-                               dict['model'], 
-                               dict['color'],
                                dict['filename'].split('.')[0],
                             ])
 
-        for dict in self._load_json('veriwild_gallery.json'):
-            self.gallery.append([osp.join(self.root, 'image_test', dict['filename']),
+        for dict in self._load_json(self.gallery_json):
+            self.gallery.append([osp.join(self.root, 'images', dict['filename']),
                                  dict['vid'],
                                  dict['camera'],
-                                 dict['model'],
-                                 dict['color'],
                                  dict['filename'].split('.')[0],
                             ])
         
         self.test = self.gallery + self.query 
+
 
 '''
 d = VeRi_Wild(root='/home/share/zhihui/VeRi/')

@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-This is a repository for vehicle re-id. Keep updating.
+This is a repository for vehicle re-i
 
 ## Installation
 
@@ -80,9 +80,47 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 ## Benchmark
 * VehicleID
 
-|    Model        | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :----: | :----: | :-----: |   
-|    Baseline     |    -   |   -    |    -    |   
+<table>
+   <tr>
+      <td>Model</td>
+      <td>Small</td>
+      <td></td>
+      <td></td>
+      <td>Median</td>
+      <td></td>
+      <td></td>
+      <td>Large</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+   </tr>
+   <tr>
+      <td>Basline</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>
+   <tr>
+      <td></td>
+   </tr>
+</table> 
 
 * VeRi776
 
@@ -93,9 +131,56 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 * VeRi_Wild
 
-|    Model        | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :-: | :----: | :----: | :-----: | 
-|    Baseline     |  -  |    -   |   -    |    -    |
+<table>
+   <tr>
+      <td>Model</td>
+      <td>Small</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Median</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Large</td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td></td>
+      <td>mAP</td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+      <td>mAP</td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+      <td>mAP</td>
+      <td>Rank 1</td>
+      <td>Rank 5</td>
+      <td>Rank 10</td>
+   </tr>
+   <tr>
+      <td>Baseline</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>
+   <tr>
+      <td></td>
+   </tr>
+</table>
 
 ## Acknowlegement
 

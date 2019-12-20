@@ -25,7 +25,6 @@ class VehicleID(BaseDataset):
         self.train, self.test, self.gallery, self.query = [], [], [], []
         self.root = root 
         self.load()
-        self.training = True 
 
     def load(self):
         '''

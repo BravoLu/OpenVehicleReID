@@ -23,7 +23,7 @@ def parse_args():
     parser.add_argument('--log', type=str, default='default', help='the path of the log file.')
     parser.add_argument('--gpu', type=str, default='0')
     parser.add_argument('--seed', type=int, default=0)
-    parser.add_argument('--resume', type=str, default='the path of resume checkpoint.')
+    parser.add_argument('--resume', type=str, default="", help='the path of resume checkpoint.')
     args = parser.parse_args()
     print(args)
     return args
@@ -37,6 +37,7 @@ def set_random_seed(seed):
 def train(args, cfg):
     
     dataset = get_dataloader(configs, root=args.data, quick_check=args.check)
+    print('dataset ids', DATASET_ID_NUM[cfg['TARGET']])
     model = globals()[cfg['MODEL']](DATASET_ID_NUM[cfg['TARGET']])
     trainer = globals()[cfg['TRAINER']](cfg, model, dataset)
     trainer.train()
