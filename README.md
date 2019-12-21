@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-This is a repository for vehicle re-i
+This is a repository for vehicle Re-ID.
 
 ## Installation
 
@@ -33,9 +33,11 @@ This is a repository for vehicle re-i
     python main.py -c {$CONFIG_FILE} \\
                    -d {$DATA_PATH} \\
                    --gpu {$GPU_IDS} \\
+                   --log {$LOG_DIR} \\
+                   --save {$CKPT_SAVE_PATH} \\
                    --seed {$SEED} 
     (e.g.)
-    python main.py -c configs/baseline.yml -d /home/share/zhihui/VeRi/ --gpu 0,1 --seed 0 
+    python main.py -c configs/baseline.yml -d /home/share/zhihui/VeRi/ --log logs/veri/baseline --save ckpts/veri/baseline --gpu 0,1 --seed 0 
 ```
 
 3. Test 
@@ -60,11 +62,11 @@ This is a repository for vehicle re-i
                    --ckpt {$CKPT_PATH} \\
                    --gpu {$GPU_IDS} \\
                    --seed {$SEED} \\
-                   --vis {$OUTPUT_PKL_PATH}
+                   --vis {$OUTPUT_PKL_PATH} \\ 
                    -t
 ```
 
-2. Visualize the ranking list according to the .pkl file generated in step 1.
+2. Visualize the ranking list according to the .pkl file generated in step 1. 
 ```shell
     cd visualization
     python visualization.py --data ${DATA_ROOT}
@@ -100,7 +102,7 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
    </tr>
    <tr>
       <td>Basline</td>
-      <td>0</td>
+      <td>75.6%</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -114,9 +116,12 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 * VeRi776
 
-|    Model        | mAP | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :-: | :----: | :----: | :-----: | 
-|    Baseline     |  -  |    -   |   -    |    -    |  
+|    Model        | scale   | mAP   | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
+| :-------------: | :-----: | :---: | :----: | :----: | :-----: | 
+|    Baseline     | 224x224 | 74.7% | 94.8%  | 98.3%  |  99.2%  |  
+|    Baseline(RR) | 224x224 | 79.8% | 95.7%  | 97.1%  |  98.4%  |
+|    Baseline     | 384x384 | 74.7% | 94.8%  | 98.3%  |  99.2%  |
+|    Baseline(RR) | 384x384 | 79.8% | 95.7%  | 97.1%  |  98.4%  |
 
 * VeRi_Wild
 

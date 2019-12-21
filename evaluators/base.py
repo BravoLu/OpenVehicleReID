@@ -80,7 +80,7 @@ class BaseEvaluator(object):
 
         features, labels = self.extract_features()
         distmat = self.pairwise_distance(features)
-        indices = np.argsort(distmat.numpy(), axis=1)
+        indices = np.argsort(distmat, axis=1)
         m, _ = distmat.shape
         rank_list_dict = {}
         for i in range(m):
@@ -131,7 +131,7 @@ class BaseEvaluator(object):
         x = torch.stack([features[q[-1]] for q in self.query])
         y = torch.stack([features[g[-1]] for g in self.gallery])
 
-        if self.cfg['RERANKING']:
+        if self.cfg['RERANK']:
             dist = re_ranking(x, y, 20, 6, 0.3)
         else:
             m,n = x.size(0), y.size(0)
@@ -139,6 +139,7 @@ class BaseEvaluator(object):
             y = y.view(n,-1)
             dist = torch.pow(x, 2).sum(dim=1, keepdim=True).expand(m,n) + torch.pow(y, 2).sum(dim=1, keepdim=True).expand(n,m).t()
             dist.addmm_(1, -2, x, y.t())
+            dist = dist.cpu().numpy()
 
         return dist
 
@@ -162,7 +163,7 @@ class BaseEvaluator(object):
         return mAP, CMC_scores
 
     def mean_ap(self, distmat, query_ids, gallery_ids, query_cams, gallery_cams):
-        distmat = distmat.cpu().numpy()
+        #distmat = distmat.cpu().numpy()
         m, _ = distmat.shape
         
         indices = np.argsort(distmat, axis=1)
@@ -183,7 +184,7 @@ class BaseEvaluator(object):
         return np.mean(aps)
 
     def CMC(self, distmat, query_ids, gallery_ids, query_cams, gallery_cams, topk=100):
-        distmat = distmat.cpu().numpy()
+        #distmat = distmat.cpu().numpy()
         m, _ = distmat.shape
         
         indices = np.argsort(distmat, axis=1)

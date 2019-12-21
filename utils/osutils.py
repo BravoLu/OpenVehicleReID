@@ -27,6 +27,7 @@ def parse_config(args):
     cfg['TEST'] = args.test
     cfg['RESUME'] = args.resume
     cfg['CKPT_DIR'] = args.save
+    cfg['RERANK'] = args.rerank
     return cfg
 
 

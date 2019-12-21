@@ -1,9 +1,9 @@
 #Dataset
-TARGET: 'VeRi776'
+TARGET: 'VehicleID'
 
 #Input
-WIDTH: 224 
-HEIGHT: 224
+WIDTH: 384
+HEIGHT: 384
 
 MODEL: Baseline
 TRAINER: BaseTrainer
@@ -19,7 +19,6 @@ EPOCHS: 260
 PRETRAINED: None
 RESUME: None
 
-
 #optimizer setting
 STEPS: [20 ,30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255]
 GAMMA: 0.6
@@ -28,9 +27,12 @@ WARMUP_ITERS: 10
 WARMUP_METHOD: 'linear'
 OPTIM: 'Adam'
 
-# LOSS WEIGHT
+#hyperparameters
 ALPHA: 1
 BETA: 1
+
+#postprocessing
+RERANKING: False
 
 LR: 0.001
 WEIGHT_DECAY: 0.0005

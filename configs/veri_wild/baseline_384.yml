@@ -1,9 +1,9 @@
 #Dataset
-TARGET: 'VeRi776'
+TARGET: 'VeRi_Wild'
 
 #Input
-WIDTH: 224 
-HEIGHT: 224
+WIDTH: 384
+HEIGHT: 384
 
 MODEL: Baseline
 TRAINER: BaseTrainer
@@ -16,9 +16,8 @@ INSTANCE: 4
 EPOCHS: 260
 
 # os
-PRETRAINED: None
-RESUME: None
-
+PRETRAINED: 'None'
+RESUME: 'None'
 
 #optimizer setting
 STEPS: [20 ,30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255]
@@ -32,7 +31,10 @@ OPTIM: 'Adam'
 ALPHA: 1
 BETA: 1
 
-LR: 0.001
+#postprocessing
+RERANKING: False
+
+LR: 0.0001
 WEIGHT_DECAY: 0.0005
 WEIGHT_DECAY_BIAS: 0.0005
 BIAS_LR_FACTOR: 1
