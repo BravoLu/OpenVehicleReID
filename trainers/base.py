@@ -93,7 +93,7 @@ class BaseTrainer(object):
                 bar.next()
 
             self.logger.write('\n\nTraining Infos: \n')
-            self.logger.write('[%d] \nlr              : %.5f \n'%(epoch+1, self.scheduler.get_lr()[0]))
+            self.logger.write('[%d] \nlr              : %.7f \n'%(epoch+1, self.scheduler.get_lr()[0]))
             for loss in stats:
                 self.logger.write('%s : %.2f \n'%(loss.ljust(15), meters_trn[loss].avg))
             self.logger.write('Time consumed   : %.1fs\n'%(time.time() - start_time))

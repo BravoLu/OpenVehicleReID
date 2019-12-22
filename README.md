@@ -85,6 +85,7 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 <table>
    <tr>
       <td rowspan="2">Model</td>
+      <td rowspan="2">scale</td>
       <td colspan="3" align="center">Small</td>
       <td colspan="3" align="center">Median</td>
       <td colspan="3" align="center">Large</td>
@@ -102,6 +103,20 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
    </tr>
    <tr>
       <td>Basline</td>
+      <td>224x224</td>
+      <td>76.4%</td>
+      <td>89.2%</td>
+      <td>92.9%</td>
+      <td>74.5%</td>
+      <td>86.5%</td>
+      <td>90.2%</td>
+      <td>71.5%</td>
+      <td>83.6%</td>
+      <td>87.7%</td>
+   </tr>
+   <tr>
+      <td>Basline(RR)</td>
+      <td>224x224</td>
       <td>75.6%</td>
       <td>0</td>
       <td>0</td>
@@ -112,6 +127,30 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td>0</td>
       <td>0</td>
    </tr>
+      <td>Basline</td>
+      <td>384x384</td>
+      <td>75.6%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>
+      <td>Basline(RR)</td>
+      <td>384x384</td>
+      <td>75.6%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>      
 </table> 
 
 * VeRi776
@@ -120,8 +159,8 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 | :-------------: | :-----: | :---: | :----: | :----: | :-----: | 
 |    Baseline     | 224x224 | 74.7% | 94.8%  | 98.3%  |  99.2%  |  
 |    Baseline(RR) | 224x224 | 79.8% | 95.7%  | 97.1%  |  98.4%  |
-|    Baseline     | 384x384 | 74.7% | 94.8%  | 98.3%  |  99.2%  |
-|    Baseline(RR) | 384x384 | 79.8% | 95.7%  | 97.1%  |  98.4%  |
+|    Baseline     | 384x384 | 79.5% | 95.9%  | **98.5%**  |  **99.0%**  |
+|    Baseline(RR) | 384x384 | **84.2%** | **96.7%**  | 98.4%  |  98.9%  |
 
 * VeRi_Wild
 
@@ -162,6 +201,8 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td>0</td>
    </tr>
 </table>
+
+\* RR denotes reranking. 
 
 ## Acknowlegement
 

@@ -19,7 +19,7 @@ class VehicleID(BaseDataset):
     ]
     '''
 
-    def __init__(self, root="/home/share/zhihui/VehicleID_V1.0/", test_size='small'):
+    def __init__(self, root="/home/share/zhihui/VehicleID_V1.0/", test_size='large'):
         assert test_size in ['small', 'median', 'large']
         self.test_json = "dataset/vehicleid_test_%s.json"%test_size 
         self.train, self.test, self.gallery, self.query = [], [], [], []
