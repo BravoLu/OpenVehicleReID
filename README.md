@@ -30,46 +30,46 @@ This is a repository for vehicle Re-ID.
 
 2. Train
 ```shell
-    python main.py -c {$CONFIG_FILE} \\
-                   -d {$DATA_PATH} \\
-                   --gpu {$GPU_IDS} \\
-                   --log {$LOG_DIR} \\
-                   --save {$CKPT_SAVE_PATH} \\
-                   --seed {$SEED} 
+    python main.py -c <path_to_config_file> \\
+                   -d <path_to_data> \\
+                   --gpu <gpu_ids> \\
+                   --log <path_to_log_file> \\
+                   --save <path_to_save_checkpoint_file> \\
+                   --seed <seed_number>
     (e.g.)
     python main.py -c configs/baseline.yml -d /home/share/zhihui/VeRi/ --log logs/veri/baseline --save ckpts/veri/baseline --gpu 0,1 --seed 0 
 ```
 
 3. Test 
 ```shell 
-    python main.py -c {$CONFIG_FILE} \\
-                   -d {$DATA_PATH} \\
-                   --ckpt {$CKPT_PATH} \\
-                   --gpu {$GPU_IDS} \\
-                   --seed {$SEED} \\
+    python main.py -c <path_to_config_file> \\
+                   -d <path_to_data> \\
+                   --ckpt <path_to_load_checkpoint_file> \\
+                   --gpu <gpu_ids> \\
+                   --seed <seed_number> \\
                    -t 
     (e.g.)
     python main.py -c configs/baseline.yml -d /home/share/zhihui/VeRi/ --ckpt ckpts/baseline/checkpoint.pth --gpu 0,1 --seed 0
 ```
 ## Visualization 
 
-* We visualize the ranking list in Windows 10.
+* We visualize the ranking list in Windows 10 (Now only support VeRi, will support other dataset in the future).
 
 1. Generate the ranking list pickle file.
 ```shell
-    python main.py -c {$CONFIG_FILE} \\
-                   -d {$DATA_PATH}  \\
-                   --ckpt {$CKPT_PATH} \\
-                   --gpu {$GPU_IDS} \\
-                   --seed {$SEED} \\
-                   --vis {$OUTPUT_PKL_PATH} \\ 
+    python main.py -c <path_to_config_file> \\
+                   -d <path_to_data>  \\
+                   --ckpt <path_to_load_checkpoint_file> \\
+                   --gpu <gpu_ids> \\
+                   --seed <seed_number>  \\
+                   --vis <path_to_save_visualization_file>  \\ 
                    -t
 ```
 
 2. Visualize the ranking list according to the .pkl file generated in step 1. 
 ```shell
     cd visualization
-    python visualization.py --data ${DATA_ROOT}
+    python visualization.py --data <path_to_data>
 ```
 ![pic](imgs/ui.jpg)
 
@@ -117,36 +117,36 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
    <tr>
       <td>Basline(RR)</td>
       <td>224x224</td>
-      <td>75.6%</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>77.3%</td>
+      <td>89.4%</td>
+      <td>93.4%</td>
+      <td>74.5%</td>
+      <td>86.3$</td>
+      <td>90.7%</td>
+      <td>72.2%</td>
+      <td>83.6%</td>
+      <td>87.8%</td>
    </tr>
       <td>Basline</td>
       <td>384x384</td>
-      <td>75.6%</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>78.9%</td>
+      <td>91.3%</td>
+      <td>94.9%</td>
+      <td>76.5%</td>
+      <td>89.0%</td>
+      <td>92.9%</td>
+      <td>74.0%</td>
+      <td>86.1%</td>
+      <td>90.4%</td>
    </tr>
       <td>Basline(RR)</td>
       <td>384x384</td>
-      <td>75.6%</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>78.9%</td>
+      <td>91.6%</td>
+      <td>95.3%</td>
+      <td>76.3%</td>
+      <td>88.4%</td>
+      <td>92.8%</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
