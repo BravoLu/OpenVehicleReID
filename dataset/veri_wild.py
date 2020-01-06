@@ -15,7 +15,7 @@ class VeRi_Wild(BaseDataset):
         }
     ]
     '''
-    def __init__(self, root, test_size='small'):
+    def __init__(self, root, test_size='large'):
         assert test_size in ['small', 'median', 'large']
         self.query_json = 'dataset/veriwild_query_%s.json'%test_size
         self.gallery_json = 'dataset/veriwild_gallery_%s.json'%test_size

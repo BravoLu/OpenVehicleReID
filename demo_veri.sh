@@ -1,1 +1,1 @@
-python main.py -c configs/veri/baseline_384.yml -d /home/share/zhihui/VeRi/ --log logs/veri/baseline_384 --save ckpts/veri/baseline_384 --gpu 2,3 --seed 0 
+python main.py -c configs/veri/sgd.yml -d /home/share/zhihui/VeRi/ --log logs/veri/sgd --save ckpts/veri/sgd --gpu 1 --seed 0 

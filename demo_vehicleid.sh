@@ -1,1 +1,1 @@
-python main.py -c configs/vehicleid/baseline_384.yml -d /home/share/zhihui/VehicleID_V1.0/ --log logs/vehicleid/baseline_384 --save ckpts/vehicleid/baseline_384 --gpu 4,5 --seed 0 
+python main.py -c configs/vehicleid/sgd.yml -d /home/share/zhihui/VehicleID_V1.0/ --log logs/vehicleid/sgd --save ckpts/vehicleid/sgd --gpu 1 --seed 0 

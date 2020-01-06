@@ -147,9 +147,9 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
       <td>76.3%</td>
       <td>88.4%</td>
       <td>92.8%</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>74.4%</td>
+      <td>85.7%</td>
+      <td>90.0%</td>
    </tr>      
 </table> 
 
@@ -167,6 +167,7 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 <table>
    <tr>
       <td rowspan="2">Model</td>
+      <td rowspan="2">scale</td>
       <td colspan="4" align="center">Small</td>
       <td colspan="4" align="center">Median</td>
       <td colspan="4" align="center">Large</td>
@@ -187,6 +188,55 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
    </tr>
    <tr>
       <td>Baseline</td>
+      <td>224x224</td>
+      <td>66.7%</td>
+      <td>80.6%</td>
+      <td>94.0%</td>
+      <td>97.3%</td>
+      <td>58.3%</td>
+      <td>73.0%</td>
+      <td>90.0%</td>
+      <td>95.0%</td>
+      <td>47.6%</td>
+      <td>64.8%</td>
+      <td>84.4%</td>
+      <td>90.8%</td>
+   </tr>
+   <tr>
+      <td>Baseline(RR)</td>
+      <td>224x224</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>
+   <tr>
+      <td>Baseline</td>
+      <td>384x384</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+   </tr>
+   <tr>
+      <td>Baseline(RR)</td>
+      <td>384x384</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>

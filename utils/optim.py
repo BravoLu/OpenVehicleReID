@@ -1,5 +1,6 @@
 from bisect import bisect_right
 import torch
+from .radam import RAdam 
 
 class WarmupMultiStepLR(torch.optim.lr_scheduler._LRScheduler):
     def __init__(
@@ -64,6 +65,8 @@ def make_optimizer(cfg, model, num_gpus=1):
         params += [{"params": [value], "lr": lr, "weight_decay": weight_decay}]
     if optim_name == 'SGD':
         optimizer = getattr(torch.optim, optim_name)(params, momentum=0.9)
+    elif optim_name == 'RAdam':
+        optimizer = RAdam(params)
     else:
         optimizer = getattr(torch.optim, optim_name)(params)
     return optimizer

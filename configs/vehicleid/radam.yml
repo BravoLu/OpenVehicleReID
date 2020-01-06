@@ -1,0 +1,46 @@
+#Dataset
+TARGET: 'VehicleID'
+
+#Input
+WIDTH: 224 
+HEIGHT: 224
+
+MODEL: Baseline
+TRAINER: BaseTrainer
+EVALUATOR: BaseEvaluator
+
+#configs
+#Total Batch Size = BATCHSIZE * 3 , ID imgs per batch = BATCHSIZE / IDPERBATCH e.g. 128 / 16 = 8
+BATCH: 32
+INSTANCE: 4
+EPOCHS: 260
+
+# os
+PRETRAINED: None
+RESUME: None
+
+#logs
+LOGS: 'training.log'
+CKPT_DIR: '/home/shaohao/Vehicle Re-ID/ckpts/vehicleid'
+#optimizer setting
+STEPS: [20 ,30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255]
+GAMMA: 0.6
+WARMUP_FACTOR: 0.01
+WARMUP_ITERS: 10
+WARMUP_METHOD: 'linear'
+OPTIM: 'RAdam'
+
+#hyperparameters
+ALPHA: 1
+BETA: 1
+
+#postprocessing
+RERANKING: False
+
+LR: 0.001
+WEIGHT_DECAY: 0.0005
+WEIGHT_DECAY_BIAS: 0.0005
+BIAS_LR_FACTOR: 1
+
+
+EVAL_FRE: 5
