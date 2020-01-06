@@ -6,3 +6,4 @@ ckpts/*
 logs/*
 *.xml
 ckpts
+*.swp
