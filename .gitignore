@@ -5,3 +5,4 @@ __pycache__/
 ckpts/*
 logs/*
 *.xml
+ckpts
