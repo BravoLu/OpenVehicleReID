@@ -36,7 +36,7 @@ class BaseTrainer(object):
             model.load_state_dict(infos['state_dict'])
             self.start_epoch = infos['epoch']
             self.best_rank1 = infos['best_rank1']
-            self.logger.write(' loaded\n'%self.resume)
+            self.logger.write(' loaded %s\n'%self.resume)
         else:
             self.start_epoch = 0
             self.best_rank1 = 0
