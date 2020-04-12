@@ -46,8 +46,8 @@ class BaseTrainer(object):
             model.load_param(self.pretrained)      
 
         self.optimizer = make_optimizer(self.cfg, self.model, num_gpus=self.num_gpus)
-        self.scheduler = MultiStepLR(self.optimizer, milestones=self.cfg['STEPS'])
-        #self.scheduler = WarmupMultiStepLR(self.optimizer, self.cfg['STEPS'], self.cfg['GAMMA'], self.cfg['WARMUP_FACTOR'])
+        #self.scheduler = MultiStepLR(self.optimizer, milestones=self.cfg['STEPS'])
+        self.scheduler = WarmupMultiStepLR(self.optimizer, self.cfg['STEPS'], self.cfg['GAMMA'], self.cfg['WARMUP_FACTOR'])
 
         self.evaluator = globals()[cfg['EVALUATOR']](self.cfg, self.model, dataset)
 

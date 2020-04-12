@@ -6,6 +6,7 @@ import torch
 
 from utils import * 
 from dataset import *
+from dataset.market1501 import Market1501
 from models import *
 from trainers import *
 from evaluators import *

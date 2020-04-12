@@ -12,6 +12,7 @@ from .vehicleid import VehicleID
 from .veri776 import VeRi776
 from .veri_wild import VeRi_Wild 
 from .preprocessor import Preprocessor
+from .market1501 import Market1501
 
 class RandomErasing(object):
     def __init__(self,probability=0.5,sl=0.02,sh=0.4,r1=0.3,mean=(0.4914,0.4822,0.4465)):
@@ -122,17 +123,17 @@ def get_dataloader(cfg, root ,quick_check=False):
 
     normalizer = T.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
     train_transformer = T.Compose([
-        T.Resize((cfg['WIDTH'], cfg['HEIGHT'])),
+        T.Resize((cfg['HEIGHT'], cfg['WIDTH'])),
         T.RandomHorizontalFlip(p=0.5),
         T.Pad(0),
-        T.RandomCrop((cfg['WIDTH'],cfg['HEIGHT'])),
+        T.RandomCrop((cfg['HEIGHT'],cfg['WIDTH'])),
         T.ToTensor(),
         normalizer,
         RandomErasing(),
     ])
     
     test_transformer = T.Compose([
-        T.Resize((cfg['WIDTH'], cfg['HEIGHT'])),
+        T.Resize((cfg['HEIGHT'], cfg['WIDTH'])),
         T.ToTensor(),
         normalizer,
     ])
@@ -141,7 +142,7 @@ def get_dataloader(cfg, root ,quick_check=False):
         Preprocessor(target.train, training=True, transform=train_transformer),
         batch_size=cfg['BATCH'],
         sampler=RandomIdentitySampler(target, cfg['BATCH'], cfg['INSTANCE']),
-        num_workers=4, 
+        num_workers=0, 
         pin_memory=True,
     )
     
@@ -149,7 +150,7 @@ def get_dataloader(cfg, root ,quick_check=False):
         Preprocessor(target.test, training=False, transform=test_transformer),
         batch_size=cfg['BATCH'],
         shuffle=False,
-        num_workers=4,
+        num_workers=0,
         pin_memory=True, 
     )
 
