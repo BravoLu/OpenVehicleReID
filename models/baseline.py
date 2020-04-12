@@ -7,7 +7,7 @@ import torch.utils.model_zoo as model_zoo
 from .weight_init import * 
 
 model_urls = {
-    'resnet50': 'https//download.pytorch.org/models/resnet50-19c8e357.pth',
+    'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',
 }
 
 class Bottleneck(nn.Module):
