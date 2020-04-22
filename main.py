@@ -26,6 +26,7 @@ def parse_args():
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--resume', type=str, default="", help='the path of resume checkpoint.')
     parser.add_argument('--rerank', action='store_true')
+    parser.add_argument('--use_apex', action='store_true')
     args = parser.parse_args()
     print(args)
     return args

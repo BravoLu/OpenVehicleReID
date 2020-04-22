@@ -20,8 +20,7 @@ class VeRi776(BaseDataset):
             self.train.append([osp.join(self.root, 'image_train', dict['filename']),
                                dict['vid'],
                                dict['camera'],
-                               dict['model'],
-                               dict['color']
+                               dict['filename'].split('.')[0],
                             ])
 
         for dict in self._load_json('dataset/veri776_query.json'):

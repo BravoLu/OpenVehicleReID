@@ -11,7 +11,7 @@ EVALUATOR: BaseEvaluator
 
 #configs
 #Total Batch Size = BATCHSIZE * 3 , ID imgs per batch = BATCHSIZE / IDPERBATCH e.g. 128 / 16 = 8
-BATCH: 32
+BATCH: 64
 INSTANCE: 4
 EPOCHS: 260
 
@@ -38,4 +38,4 @@ WEIGHT_DECAY_BIAS: 0.0005
 BIAS_LR_FACTOR: 1
 
 
-EVAL_FRE: 5
+EVAL_FRE: 1 

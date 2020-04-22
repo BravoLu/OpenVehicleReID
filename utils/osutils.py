@@ -28,6 +28,7 @@ def parse_config(args):
     cfg['RESUME'] = args.resume
     cfg['CKPT_DIR'] = args.save
     cfg['RERANK'] = args.rerank
+    cfg['use_apex'] = args.use_apex
     return cfg
 
 

@@ -10,6 +10,7 @@ import numpy as np
 from evaluators import *
 from utils import *
 from loss import * 
+from apex import amp 
 
 class BaseTrainer(object):
     def __init__(self, cfg, model, dataset):
@@ -21,10 +22,7 @@ class BaseTrainer(object):
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.num_gpus = torch.cuda.device_count() 
         self.model = model 
-        
-        if self.num_gpus >= 1:
-            self.model = nn.DataParallel(model)
-        
+                
         self.model.to(self.device)
         
         self.pretrained = self.cfg['PRETRAINED']
@@ -50,6 +48,10 @@ class BaseTrainer(object):
         self.scheduler = WarmupMultiStepLR(self.optimizer, self.cfg['STEPS'], self.cfg['GAMMA'], self.cfg['WARMUP_FACTOR'])
 
         self.evaluator = globals()[cfg['EVALUATOR']](self.cfg, self.model, dataset)
+        if self.cfg['use_apex']:
+            self.model, self.optimizer = amp.initialize(self.model, self.optimizer, opt_level='O1')
+        if self.num_gpus >= 1:
+            self.model = nn.DataParallel(model)
 
     def train(self):
         triplet = TripletLoss().cuda()
@@ -76,7 +78,11 @@ class BaseTrainer(object):
                 total_loss = self.cfg['ALPHA'] * id_loss + self.cfg['BETA'] * triplet_loss 
 
                 self.optimizer.zero_grad()
-                total_loss.backward()
+                if self.cfg['use_apex']:
+                    with amp.scale_loss(total_loss, self.optimizer) as scaled_loss:
+                        scaled_loss.backward()
+                else:
+                    total_loss.backward()
                 self.optimizer.step() 
 
                 for k in stats:
