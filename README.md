@@ -4,6 +4,12 @@
 
 This is a repository for vehicle Re-ID.
 
+## Update
+
+This repo keeps updating. 
+
+2020-4-22: append [apex](https://github.com/NVIDIA/apex) support for saving GPU memory.
+
 ## Installation
 
 ### Requirements
@@ -155,9 +161,9 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 * VeRi776
 
-|    Model        | scale   | mAP   | Rank 1 | Rank 5 | Rank 10 |                                                                                                                 
-| :-------------: | :-----: | :---: | :----: | :----: | :-----: | 
-|    Baseline     | 224x224 | 74.7% | 94.8%  | 98.3%  |  99.2%  |  
+|    Model        | scale   | mAP   | Rank 1 | Rank 5 | Rank 10 |
+| :-------------: | :-----: | :---: | :----: | :----: | :-----: |
+|    Baseline     | 224x224 | 74.7% | 94.8%  | 98.3%  |  99.2%  |
 |    Baseline(RR) | 224x224 | 79.8% | 95.7%  | 97.1%  |  98.4%  |
 |    Baseline     | 384x384 | 79.5% | 95.9%  | **98.5%**  |  **99.0%**  |
 |    Baseline(RR) | 384x384 | **84.2%** | **96.7%**  | 98.4%  |  98.9%  |
@@ -254,8 +260,6 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 \* RR denotes reranking. 
 
-## Acknowlegement
-
-* Keep Updating.
+## Acknowledgement
 
 * Some code is borrowed from [open-reid](https://github.com/Cysu/open-reid)
