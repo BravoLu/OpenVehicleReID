@@ -28,8 +28,7 @@ class VeRi_Wild(BaseDataset):
             self.train.append([osp.join(self.root, 'images', dict['filename']),
                                dict['vid'],
                                dict['camera'],
-                               dict['model'],
-                               dict['color']
+                               dict['filename'].split('.')[0],
                             ])
 
         for dict in self._load_json(self.query_json):

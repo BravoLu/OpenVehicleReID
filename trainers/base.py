@@ -9,8 +9,11 @@ import numpy as np
 
 from evaluators import *
 from utils import *
-from loss import * 
-from apex import amp 
+from loss import *
+try:
+    from apex import amp 
+except:
+    print('apex is not installed')
 
 class BaseTrainer(object):
     def __init__(self, cfg, model, dataset):
