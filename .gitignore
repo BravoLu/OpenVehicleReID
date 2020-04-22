@@ -144,4 +144,5 @@ logs/*
 *.xml 
 ckpts
 *.swp
-**/__pycache__/* 
+**/__pycache__/*
+.nfs000000002db0eade0000000d 
