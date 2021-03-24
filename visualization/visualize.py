@@ -38,7 +38,7 @@ def load_pickle(path):
     return dicts
 
 def num_per_id():
-    imgs = os.listdir('../image_test')
+    imgs = os.listdir('VeRi/image_test')
     gallery_num = defaultdict(int)
     for img in imgs:
         ID = img[0:4]
@@ -157,13 +157,14 @@ class VisTool():
         self.prbList = []
 
         # load query image
-        f = rank_list[0]
-        print(f)
+        f = rank_list[0] + ".jpg"
+        # print("query_name:", f)
         gn = gallery_num[query[0:4]]
         self.info.config(text="gallery size: %d"%(gn))
         im = cv2.imread(f)
         #cv2.imwrite('test.jpg', im)
         query_id = f[-24:-20]
+        print(np.asarray(im))
         im = cv2.cvtColor(np.asarray(im), cv2.COLOR_BGR2RGB)
         im = Image.fromarray(im).resize((200, 200), Image.BILINEAR)
         #im = Image.fromarray(im).resize((200, 200), Image.ANTIALIAS)
@@ -194,16 +195,17 @@ class VisTool():
         myimage = []
         for i in myrange:
             print(rank_list[i])
-            im = cv2.imread(rank_list[i])
+            im = cv2.imread(rank_list[i]+".jpg")
             im = cv2.cvtColor(np.asarray(im), cv2.COLOR_BGR2RGB)
             im = Image.fromarray(im).resize((200, 200), Image.BILINEAR)
             im = np.asarray(im)
-            gallery_id = rank_list[i][-24:-20]
+            gallery_id = rank_list[i][-20:-16]
+            print(gallery_id, query_id)
             if query_id == gallery_id:
                 cv2.rectangle(im,(2,2),(im.shape[1]-2,im.shape[0]-2),(0,255,0),2)
             else:
                 cv2.rectangle(im,(2,2),(im.shape[1]-2,im.shape[0]-2),(255,0,0),2)            
-            cv2.putText(im, rank_list[i][-24:-4], (5,40), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255,0,0),1)
+            cv2.putText(im, rank_list[i][-20:-4], (5,40), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255,0,0),1)
 
             im_h, im_w = im.shape[:2]
             if (im_w + im_h) < 100:

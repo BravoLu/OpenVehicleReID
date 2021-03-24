@@ -85,6 +85,8 @@ Input the file name (without extension) on the entry of Rank File(.pkl).
 
 * (Green denotes same ids, red denotes different ids.)
 
+More details see [https://github.com/BravoLu/reid-visual-system](https://github.com/Bravolu/reid-visual-system)
+
 ## Benchmark
 * VehicleID
 
